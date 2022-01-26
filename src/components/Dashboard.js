@@ -1,28 +1,21 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { DELETE_NEWS, UPDATE_NEWS, UPDATE_STOCK, REGISTER_NEWS } from '../util/graphql';
+import { DELETE_NEWS, UPDATE_NEWS, REGISTER_NEWS } from '../util/graphql';
 import useForceUpdate from 'use-force-update';
-import { AuthContext } from '../context/auth';
 
 import { useQuery } from '@apollo/react-hooks';
 import { FETCH_ALLNEWS_QUERY } from '../util/graphql';
 
-import { useForm, useFormInt, useInstantForm } from '../util/hooks';
+import { useFormInt, useInstantForm } from '../util/hooks';
 
-import { Component } from 'react';
 import {
-  Segment,
-  Dimmer,
-  Loader,
   Container,
-  Header,
   Card,
   Button,
   Form,
   Input,
   TextArea
 } from 'semantic-ui-react';
-import { defineLocale } from 'moment';
 
 export default function Dashboard(props) {
     // console.log(props.state);
@@ -40,11 +33,12 @@ export default function Dashboard(props) {
     //     newsText: '',
     //     newsID: '',
     //   });
+    console.log(getAllNews);
     const [state, setState] = useState(props.state);
     const forceUpdate = useForceUpdate();
-    const {user, logout} = useContext(AuthContext);
+    // const {user, logout} = useContext(AuthContext);
     
-    const news = state.news;
+    // const news = state.news;
     // state.map(({id, newsID, newsText}) => {
      
     //     console.log(id, newsID, newsText);
@@ -79,6 +73,7 @@ export default function Dashboard(props) {
             },
             variables: values
         });
+        console.log(loading);
         function registerNewsCallback() {
             RegisterNews();
         }
@@ -171,7 +166,7 @@ export default function Dashboard(props) {
                 // var items = [...state.items];
                 // console.log(items);
                 setState(state.map(obj => {
-                    return (obj.id == d.id ? d : obj);
+                    return (obj.id === d.id ? d : obj);
                 }));
                 // setState({items} => ({
                 //     items.map()
@@ -180,6 +175,7 @@ export default function Dashboard(props) {
             },
             variables: values
         });
+        console.log(loading);
         // const [DeleteNews, {deleteLoading}] = useMutation(DELETE_NEWS);
 
 
@@ -192,7 +188,7 @@ export default function Dashboard(props) {
             ) {
                 console.log(d);
                 setState(state.filter(function(item){
-                    return item.id != d.id;
+                    return item.id !== d.id;
                 }) );
                 forceUpdate();
             },
@@ -200,6 +196,7 @@ export default function Dashboard(props) {
 
         });
 
+        console.log(deleteLoading);
         // console.log(DeleteNews);
 
         // console.log(instantValues, values);

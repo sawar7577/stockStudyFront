@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-import gql from 'graphql-tag';
-import { AuthContext } from '../context/auth';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { FETCH_ALLNEWS_QUERY } from '../util/graphql';
 import Dashboard from '../components/Dashboard';

@@ -20,9 +20,10 @@ export const useForm = (callback, initialState = {}) => {
 };
 
 export const useInstantForm = (callback, initialState = {}) => {
-  const [instantValues, _] = useState(initialState);
+  const [instantValues, setInstantValues] = useState(initialState);
 
   const onClick = (event) => {
+    console.log(setInstantValues);
     // console.log(event, "---", event.target.name, "---", event.target.value);
     // setValues({ ...values, [event.target.name]: event.target.value });
     event.preventDefault();

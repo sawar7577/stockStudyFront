@@ -6,7 +6,6 @@ import { UPDATE_STOCK } from '../util/graphql';
 import useForceUpdate from 'use-force-update';
 //import { useHistory } from "react-router-dom";
 import { AuthContext } from '../context/auth';
-import { assertValidExecutionArguments } from 'graphql/execution/execute';
 // import {news} from './news';
 
 function randomIntFromInterval(min, max) { // min and max included 
@@ -136,8 +135,7 @@ export default function StockCard(props) {
 
   function addPreConditionTicks() {
     var newPrice;
-    var auxArrData = [];
-    var auxArrInd = [];
+
     console.log(state.price);
 
     let t = state.participantInfo.sequence[state.ind-1];
@@ -215,12 +213,12 @@ export default function StockCard(props) {
          <h1 className = "ui center aligned header" > Total Money : {(state.money[state.ind-1]).toFixed(2)}</h1>
       </div>
       <div className="six wide column">
-        <h1 className = {`ui center aligned ${state.color} header`} >You Earned { state.ind == 1 ? 0.00 : (state.money[state.ind-1]- state.money[state.ind-2]).toFixed(2)} Today</h1>
+        <h1 className = {`ui center aligned ${state.color} header`} >You Earned { state.ind === 1 ? 0.00 : (state.money[state.ind-1]- state.money[state.ind-2]).toFixed(2)} Today</h1>
       </div>
       </div>
       <div className="ui segment two column grid">
       {
-        state.participantInfo.controlGroup == 3 ? <p></p> :
+        state.participantInfo.controlGroup === 3 ? <p></p> :
 
         <div className="nine wide column">
           <Line
@@ -243,7 +241,7 @@ export default function StockCard(props) {
       <div className = "seven wide column">
         <h2 className="ui left aligned header"> Current Price :  {state.pr}</h2>
         {/* <h2 className="ui left aligned header"> Target Price :  {(state.predictedPrice[state.ind-1]).toFixed(2)}</h2> */}
-        { state.predict == "Game Ended. Please close the tab." ? 
+        { state.predict === "Game Ended. Please close the tab." ? 
            <h3 className="ui left aligned header" style={{textAlign: "justify"}}> <div>Game ended. Please logout</div></h3> :
            <h3 className="ui left aligned header" style={{textAlign: "justify"}}> <div>News :  {state.news[Math.abs(state.participantInfo.sequence[state.ind-1])-1].newsText}</div></h3>
         }

@@ -3,7 +3,6 @@ import { Button } from 'semantic-ui-react';
 import { AuthContext } from '../context/auth';
 import { useMutation } from '@apollo/react-hooks';
 import { CREATE_STOCK } from '../util/graphql';
-import { REGISTER_NEWS } from '../util/graphql';
 import { useHistory } from "react-router-dom";
 const tick = ["AAPL",	"MSFT",	"AMZN",	"GOOGL", "TSLA",	"NVDA",	"CMCSA",
   "PYPL",	"NFLX",	"TWLO",	"SHOP",	"ZM",	"DDOG",	"FB"];
