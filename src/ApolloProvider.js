@@ -9,8 +9,8 @@ import { setContext } from 'apollo-link-context';
 const httpLink = createHttpLink({
   
   // uri: 'https://mysterious-tundra-35775.herokuapp.com/'
-  uri: 'http://localhost:5000/'
-  // uri: 'https://gallant-tereshkova-9c97ab.netlify.app/'
+  // uri: 'http://localhost:5000/'
+  uri: 'https://stock-study-iiith-back.netlify.app/'
 });
 
 const authLink = setContext(() => {
