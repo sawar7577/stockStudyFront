@@ -37,7 +37,7 @@ function Home() {
         </div>
         <div className = "ui five wide column" >
         <h4>
-        You will be shown the first three periodds of a stock's closing price, and the game will simulate the next eleven periods days.
+        You will be shown the first three periods of a stock's closing price, and the game will simulate the next eleven periods.
         Besides the chart (or no chart depending on the experiment), you will be shown the total money earned by you and the money you made on the last day. 
         </h4>
         <h3>You will automatically go to the next period if you take any decision by pressing arrow keys.
